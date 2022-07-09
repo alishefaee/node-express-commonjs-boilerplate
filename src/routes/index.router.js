@@ -1,11 +1,11 @@
 import express from 'express'
-import Controller from '../controllers/controller.mjs'
-import userRouter from './user.router.mjs'
+import Controller from '../controllers/controller.js'
+import userRouter from './user.router.js'
 import forgotPasswordRouter from './forgot-password.router.mjs'
-import productRouter from './product.router.mjs'
+import productRouter from './product.router.js'
 import cors from 'cors'
-import { response, setCodeResponse } from '../utils/functions.mjs'
-import { Code } from '../utils/consts.utils.mjs'
+import { response, setCodeResponse } from '../utils/functions.js'
+import { Code } from '../utils/consts.utils.js'
 import categoryRouter from './card-category.router.mjs'
 
 const router = express.Router()

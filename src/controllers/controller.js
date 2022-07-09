@@ -1,6 +1,6 @@
-import logger from '../utils/logger.utils.mjs'
-import { Code } from '../utils/consts.utils.mjs'
-import { response as res } from '../utils/functions.mjs'
+import logger from '../utils/logger.utils.js'
+import { Code } from '../utils/consts.utils.js'
+import { response as res } from '../utils/functions.js'
 
 export default class Controller {
     constructor() {

@@ -3,14 +3,14 @@ import express from 'express'
 import path from 'path'
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
-import logger from './utils/logger.utils.mjs'
+import logger from './utils/logger.utils.js'
 import xss from 'xss-clean'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 import mongoSanitize from 'express-mongo-sanitize'
 import hpp from 'hpp'
-import { response, setCodeResponse } from './utils/functions.mjs'
-import { Code } from './utils/consts.utils.mjs'
+import { response, setCodeResponse } from './utils/functions.js'
+import { Code } from './utils/consts.utils.js'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 
@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 import swaggerUI from 'swagger-ui-express'
 // import basicAuth from 'express-basic-auth'
-import indexRouter from './routes/index.router.mjs'
+import indexRouter from './routes/index.router.js'
 
 import { createRequire } from 'module'
 
@@ -36,7 +36,7 @@ const app = express()
 // app.use("/docs", basicAuth({ users: { 'shafa': '4545' }, challenge: true, }), swaggerUI.serve, (...args) => swaggerUI.setup(swaggerJSDocs, options)(...args));
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerJSDocs))
 
-import { CustomConsole } from './utils/functions.mjs'
+import { CustomConsole } from './utils/functions.js'
 
 global.myConsole = CustomConsole
 
@@ -65,7 +65,7 @@ const limiter = rateLimit({
     handler: function (req, res) {
         httpContext.set('status', Code.TOO_MANY_REQUEST)
         return response(res, {}, 'حداکثر ۵۰۰ درخواست مجاز')
-    },
+    }
 })
 app.use('/', limiter)
 // Data sanitization against NoSQL query injection

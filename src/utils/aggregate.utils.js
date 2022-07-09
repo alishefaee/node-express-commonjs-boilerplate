@@ -1,4 +1,4 @@
-import { catchAsyncDB } from './functions.mjs'
+import { catchAsyncDB } from './functions.js'
 import mongoose from 'mongoose'
 
 export const aggregateAll = catchAsyncDB(async (resolve, reject, model, filter, query) => {

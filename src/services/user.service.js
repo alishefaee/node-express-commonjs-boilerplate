@@ -1,8 +1,8 @@
 import httpContext from 'express-http-context'
-import UserModel from '../models/user.model.mjs'
-import { Code } from '../utils/consts.utils.mjs'
-import { generateId, passwordVerify } from '../utils/encrypt.utils.mjs'
-import { catchAsyncDB } from '../utils/functions.mjs'
+import UserModel from '../models/user.model.js'
+import { Code } from '../utils/consts.utils.js'
+import { generateId, passwordVerify } from '../utils/encrypt.utils.js'
+import { catchAsyncDB } from '../utils/functions.js'
 
 class User {
     create = catchAsyncDB(async (resolve, reject, data) => {
@@ -26,7 +26,15 @@ class User {
     })
 
     findById = catchAsyncDB(async (resolve, reject, _id) => {
-        let user = await UserModel.findById( _id )
+        let user = await UserModel.findById(_id)
+        resolve(user)
+    })
+    update = catchAsyncDB(async (resolve, reject, _id, password) => {
+        let user = await UserModel.findOneAndUpdate({ _id }, { $set: { password } })
+        resolve(user)
+    })
+    updateEmailPass = catchAsyncDB(async (resolve, reject, _id, password, email) => {
+        let user = await UserModel.findOneAndUpdate({ _id }, { $set: { password, email } })
         resolve(user)
     })
 
@@ -41,24 +49,6 @@ class User {
             }
         })
     }
-
-    update = catchAsyncDB(async (resolve, reject, _id, password) => {
-        let user = await UserModel.findOneAndUpdate(
-            { _id },
-            { $set: { password } },
-        )
-        resolve(user)
-    })
-
-    updateEmailPass = catchAsyncDB(
-        async (resolve, reject, _id, password, email) => {
-            let user = await UserModel.findOneAndUpdate(
-                { _id },
-                { $set: { password, email } },
-            )
-            resolve(user)
-        },
-    )
 }
 
 export default new User()

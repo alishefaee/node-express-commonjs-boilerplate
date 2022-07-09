@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import { UserType, RegisterType } from '../utils/consts.utils.mjs'
-import { passwordHash } from '../utils/encrypt.utils.mjs'
+import { UserType, RegisterType } from '../utils/consts.utils.js'
+import { passwordHash } from '../utils/encrypt.utils.js'
 
 const Schema = mongoose.Schema
 
@@ -9,11 +9,11 @@ const userSchema = new Schema(
         email: { type: String, required: true, unique: true },
         password: { type: String },
         role: { type: String, enum: Object.values(UserType) },
-        type: { type: Number, enum: Object.values(RegisterType) },
+        type: { type: Number, enum: Object.values(RegisterType) }
     },
     {
-        timestamps: {},
-    },
+        timestamps: {}
+    }
 )
 
 userSchema.pre('save', async function (next) {

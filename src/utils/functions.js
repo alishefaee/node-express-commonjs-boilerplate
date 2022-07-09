@@ -1,4 +1,4 @@
-import { Code } from './consts.utils.mjs'
+import { Code } from './consts.utils.js'
 import httpContext from 'express-http-context'
 
 export const catchAsync = (fn) => {
@@ -32,16 +32,14 @@ export const response = (res, data = {}, info = {}) => {
     console.log('code')
     console.log(code)
 
-    let response = { code: code ? code.num : Code.OK.num, }
+    let response = { code: code ? code.num : Code.OK.num }
     if (process.env.NODE_ENV === 'dev') {
         response.message = code ? code.mes : Code.OK.mes
         response.devMessage = code ? code.devMes : Code.OK.devMes
         response.info = info
     }
     response.data = data
-    return res
-        .status(code && code.status ? code.status : Code.OK.status)
-        .json(response)
+    return res.status(code && code.status ? code.status : Code.OK.status).json(response)
 }
 
 export const CustomConsole =

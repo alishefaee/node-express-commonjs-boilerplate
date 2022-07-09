@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs'
 import crypto from 'crypto'
 import httpContext from 'express-http-context'
-import { Code } from './consts.utils.mjs'
+import { Code } from './consts.utils.js'
 
 export const passwordHash = async (pass) => {
     const saltRounds = 10

@@ -1,5 +1,5 @@
 import Subscription from '../models/subscription.model.mjs'
-import { catchAsyncDB } from '../utils/functions.mjs'
+import { catchAsyncDB } from '../utils/functions.js'
 
 class SubscriptionService {
     findOne = catchAsyncDB(async (resolve, reject) => {

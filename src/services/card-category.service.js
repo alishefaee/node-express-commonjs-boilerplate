@@ -1,8 +1,8 @@
-import { Code } from '../utils/consts.utils.mjs'
+import { Code } from '../utils/consts.utils.js'
 import CardCategory from '../models/card-category.model.mjs'
-import { catchAsyncDB } from '../utils/functions.mjs'
-import { generateId } from '../utils/encrypt.utils.mjs'
-import { aggregateOne, aggregateAll } from '../utils/aggregate.utils.mjs'
+import { catchAsyncDB } from '../utils/functions.js'
+import { generateId } from '../utils/encrypt.utils.js'
+import { aggregateOne, aggregateAll } from '../utils/aggregate.utils.js'
 import mongoose from 'mongoose'
 
 class CardCategoryService {

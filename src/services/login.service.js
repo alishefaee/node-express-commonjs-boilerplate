@@ -1,8 +1,8 @@
 import httpContext from 'express-http-context'
-import { Code } from '../utils/consts.utils.mjs'
-import { generateHash, generateId, generateToken } from '../utils/encrypt.utils.mjs'
+import { Code } from '../utils/consts.utils.js'
+import { generateHash, generateId, generateToken } from '../utils/encrypt.utils.js'
 import Login from '../models/login.model.mjs'
-import { catchAsyncDB } from '../utils/functions.mjs'
+import { catchAsyncDB } from '../utils/functions.js'
 
 class LoginService {
     create = catchAsyncDB(async (resolve, reject, user, app) => {

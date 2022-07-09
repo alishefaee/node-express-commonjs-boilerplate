@@ -1,9 +1,9 @@
-import { catchAsync, setCodeResponse } from '../../utils/functions.mjs'
-import Login from '../../services/login.service.mjs'
-import User from '../../services/user.service.mjs'
-import { generateHash } from '../../utils/encrypt.utils.mjs'
-import Controller from '../controller.mjs'
-import { Code, UserType } from '../../utils/consts.utils.mjs'
+import { catchAsync, setCodeResponse } from '../../utils/functions.js'
+import Login from '../../services/login.service.js'
+import User from '../../services/user.service.js'
+import { generateHash } from '../../utils/encrypt.utils.js'
+import Controller from '../controller.js'
+import { Code, UserType } from '../../utils/consts.utils.js'
 
 class Auth extends Controller {
     isAdmin = catchAsync(async (req, res, next) => {

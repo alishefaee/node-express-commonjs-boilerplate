@@ -1,18 +1,18 @@
-import { catchAsync, setCodeResponse } from '../utils/functions.mjs'
+import { catchAsync, setCodeResponse } from '../utils/functions.js'
 import {
     validateApp,
     validateEditUser,
     validateUserByGoogle,
     validateUserByPass
-} from './validators/user.validator.mjs'
-import { Code, RegisterType, UserType } from '../utils/consts.utils.mjs'
-import { generateToken, generateHash, generateCode } from '../utils/encrypt.utils.mjs'
-import Controller from './controller.mjs'
+} from './validators/user.validator.js'
+import { Code, RegisterType, UserType } from '../utils/consts.utils.js'
+import { generateToken, generateHash, generateCode } from '../utils/encrypt.utils.js'
+import Controller from './controller.js'
 import httpContext from 'express-http-context'
-import Email from '../utils/email.mjs'
-import UserService from '../services/user.service.mjs'
-import TokenService from '../services/token.service.mjs'
-import LoginService from '../services/login.service.mjs'
+import Email from '../utils/email.js'
+import UserService from '../services/user.service.js'
+import TokenService from '../services/token.service.js'
+import LoginService from '../services/login.service.js'
 
 class User extends Controller {
     signup = catchAsync(async (req, res) => {

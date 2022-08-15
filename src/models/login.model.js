@@ -4,7 +4,7 @@ const { passwordHash } = require("../utils/encrypt.utils.js");
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema(
+const loginSchema = new Schema(
   {
     email: { type: String, required: true, unique: true },
     password: { type: String },
@@ -15,7 +15,7 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.pre("save", async function (next) {
+loginSchema.pre("save", async function (next) {
   let user = this;
 
   if (!user.isModified("password")) {
@@ -27,4 +27,4 @@ userSchema.pre("save", async function (next) {
   return next();
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Login", loginSchema);

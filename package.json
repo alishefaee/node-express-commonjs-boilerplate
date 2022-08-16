@@ -1,5 +1,5 @@
 {
-  "name": "node-express-ecmascript-jest-boilerplate",
+  "name": "node-express-commonjs-jest-boilerplate",
   "version": "1",
   "private": false,
   "author": "Ali Shefaee",
